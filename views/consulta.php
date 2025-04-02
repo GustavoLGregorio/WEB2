@@ -18,7 +18,7 @@
                         <a href="../public/index.php">pdv <span>empresa</span></a>
                     </h1>
                     <span class="text-[1.25rem]">&ndash;</span>
-                    <h2 class="text-[1.25rem]">inicio</h2>
+                    <h2 class="text-[1.25rem]">consulta</h2>
                 </div>
                 <nav>
                     <ul class="uppercase flex justify-center gap-x-4 py-4 shadow-md rounded-b-xl">
@@ -29,7 +29,7 @@
                 </nav>
             </header>
             <main class="h-[60dvh] p-4 shadow-sm">
-
+                
             </main>
             <footer class="text-center p-4">
                 <small>&copy; copyright 2025 | Gustavo Luiz Gregorio</small>
