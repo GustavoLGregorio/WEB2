@@ -26,8 +26,6 @@
             LIMIT 10"
         );
 
-        $grafico_arr = [];
-
         foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
             mostrarResultado($row);
         }

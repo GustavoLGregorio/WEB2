@@ -2,8 +2,8 @@
 
 $host = 'localhost';
 $dbname = 'pdv';
-$username = 'gustavo';
-$password = 'Gustavo@678';
+$username = 'root';
+$password = '';
 
 try {
     // Criando a conexão PDO
