@@ -13,7 +13,6 @@
         <title>PDV - LOGIN</title>
         <link rel="stylesheet" href="global.css">
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-        <script src="app.js" defer></script>
     </head>
     <body class="bg-[#222831] flex justify-center">
         <div class="w-[678px] bg-[#EEEEEE] rounded-xl shadow-xl mt-8">

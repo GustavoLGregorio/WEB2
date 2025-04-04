@@ -2,6 +2,7 @@
     include("../config/database.php");
 
     try {
+
         $stmt = $pdo->query(
             "SELECT
                 lojas.nome AS loja_nome,
@@ -25,9 +26,26 @@
             ORDER BY venda_id DESC
             LIMIT 10"
         );
-    
+
+        $grafico_arr = [];
+
         foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
             mostrarResultado($row);
+
+            if(isset($_GET['grafico']) && $_GET['grafico'] == "true") {
+                array_push($grafico_arr, $row);
+            }
+        }
+
+        if(isset($_GET['grafico']) && $_GET['grafico'] == "true") {
+            echo $grafico_arr;
+        }
+
+        try {
+            $grafico_consulta = $_GET['grafico'];
+
+        } catch(Exception $erro) {
+            echo "Erro no grafico: " . $erro;
         }
     } catch(Exception $erro) {
         echo "Erro ao fazer consulta: " . $erro->getMensagem();

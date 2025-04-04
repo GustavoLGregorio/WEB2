@@ -1,7 +1,6 @@
 <?php
     include("../config/database.php");
     $consulta_id = $_GET['consulta_id'];
-    // $_GET['consulta_id'] 
 
     try {
         $stmt = $pdo->prepare(
@@ -53,7 +52,11 @@
             <p class="w-full">Valor final: <?= $row['valor_final']?></p>
         </div>
 
-        <div class="w-full flex justify-center mt-6">
+        <div class="w-full flex gap-x-4 justify-center mt-6">
+            <button
+                class="botao_imprimir py-2 px-4 text-[#EEEEEE] rounded-md shadow-md cursor-pointer bg-[#00ADB5] hover:bg-[#393E46]"
+                type="button"
+            >alterar dados</button>
             <button
                 onclick="
                     let conteudo = document.getElementById('consulta_individual').innerHTML
