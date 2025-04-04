@@ -15,7 +15,6 @@
         $grafico_arr = [];
 
         foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
-
             array_push($grafico_arr, $row);
         }
 

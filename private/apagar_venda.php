@@ -10,9 +10,11 @@
         $stmt->execute([$consulta_id]);
 
         echo "Sucesso ao deletar venda: " . $consulta_id . "!";
+        require_once("voltar_5_seg.php");
 
     } catch(Exception $erro) {
-        echo "Erro ao deletar venda: " . $erro->getMessage();
+        echo "Erro ao deletar venda " . $erro->getMessage();
+        require_once("voltar_5_seg.php");
     }
 
 ?>

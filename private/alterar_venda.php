@@ -33,6 +33,7 @@
         }
     } catch(Exception $erro) {
         echo "Erro ao fazer consulta: " . $erro->getMensagem();
+        require_once("voltar_5_seg.php");
     }
 
     function mostrarResultado($row) {
@@ -59,13 +60,20 @@
                 <h2 class="text-center mb-4 text-[1.1rem] uppercase">Novos Valores</h2>
                 <form class="grid gap-y-1" action="../private/atualizar_venda.php" method="get">
                     <div>
+                        <input
+                            type="text"
+                            class="hidden"
+                            value="<?= $row['venda_id']?>"
+                            name="consulta_id"
+                        >
                         <label for="aVendedorNome">Nome do vendedor:</label>
                         <input
                             id="aVendedorNome"
                             type="text"
                             class="w-full bg-[#EEEEEE] border border-[#222831] rounded-sm indent-2"
                             value="<?= $row['vendedor_nome']?>"
-                            name="vendedor_nome">
+                            name="vendedor_nome"
+                        >
                     </div>
                     <div>
                         <label for="aClienteNome">Nome do cliente:</label>
@@ -93,7 +101,7 @@
                             id="aProdutoId"
                             type="text"
                             class="w-full bg-[#EEEEEE] border border-[#222831] rounded-sm indent-2"
-                            value="<?= $row['produto_nome']?>"
+                            value="<?= $row['produto_id']?>"
                             name="produto_id"
                         >
                     </div>

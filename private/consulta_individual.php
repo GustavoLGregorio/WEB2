@@ -33,6 +33,7 @@
         }
     } catch(Exception $erro) {
         echo "Erro ao fazer consulta: " . $erro->getMensagem();
+        require_once("voltar_5_seg.php");
     }
 
     function mostrarResultado($row) {
@@ -53,10 +54,6 @@
         </div>
 
         <div class="w-full flex gap-x-4 justify-center mt-6">
-            <button
-                class="botao_imprimir py-2 px-4 text-[#EEEEEE] rounded-md shadow-md cursor-pointer bg-[#00ADB5] hover:bg-[#393E46]"
-                type="button"
-            >alterar dados</button>
             <button
                 onclick="
                     let conteudo = document.getElementById('consulta_individual').innerHTML

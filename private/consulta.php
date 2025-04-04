@@ -2,7 +2,6 @@
     include("../config/database.php");
 
     try {
-
         $stmt = $pdo->query(
             "SELECT
                 lojas.nome AS loja_nome,
@@ -31,34 +30,23 @@
 
         foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
             mostrarResultado($row);
-
-            if(isset($_GET['grafico']) && $_GET['grafico'] == "true") {
-                array_push($grafico_arr, $row);
-            }
-        }
-
-        if(isset($_GET['grafico']) && $_GET['grafico'] == "true") {
-            echo $grafico_arr;
-        }
-
-        try {
-            $grafico_consulta = $_GET['grafico'];
-
-        } catch(Exception $erro) {
-            echo "Erro no grafico: " . $erro;
         }
     } catch(Exception $erro) {
         echo "Erro ao fazer consulta: " . $erro->getMensagem();
+        require_once("voltar_5_seg.php");
     }
 
     function mostrarResultado($row) {
 ?>
-    <div class="consulta_venda flex gap-x-2 rounded-xl shadow-md p-2 bg-[#dedede] hover:bg-[#ccc] cursor-pointer mb-2">
-        <span>COD venda: <span class="cod_venda"><?= $row['venda_id']?></span></span>
-        <span>Data: <?= $row['venda_data']?></span>
-        <span>Cliente: <?= $row['cliente_nome']?></span>
-        <span>Produto: <?= $row['produto_nome']?></span>
-        <span>Valor: <?= $row['valor_final']?></span>
+    <div
+        style="display: grid; grid-auto-flow: column; grid-template-rows: 1; grid-template-columns: repeat(1fr, 5); column-gap: 1rem;"
+        class="consulta_venda text-center rounded-xl shadow-md p-2 bg-[#dedede] hover:bg-[#ccc] cursor-pointer mb-2"
+    >
+        <span class="cod_venda"><?= $row['venda_id']?></span>
+        <span><?= $row['venda_data']?></span>
+        <span><?= $row['cliente_nome']?></span>
+        <span><?= $row['produto_nome']?></span>
+        <span><?= $row['valor_final']?></span>
     </div>
 <?php
     }

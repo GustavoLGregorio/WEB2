@@ -22,5 +22,6 @@
         }
     } catch(Exception $erro) {
         echo "Erro ao fazer consulta: " . $erro->getMensagem();
+        require_once("voltar_5_seg.php");
     }
 ?>

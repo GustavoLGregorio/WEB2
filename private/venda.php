@@ -51,17 +51,9 @@
         header("Location: ../public/index.php");
 
     } catch(Exception $erro) {
-        echo "Erro ao inserir dados: " . $erro->getMessage();
         $pdo->rollback();
-
-?>
-        <h2>Voltando em 5 segundos.</h2>
-        <script>
-            window.setTimeout(() => {
-                window.location.href = 'http://localhost/WEB2/public/index.php'
-            }, 5000)
-        </script>
-<?php
+        echo "Erro ao inserir dados: " . $erro->getMessage();
+        require_once("voltar_5_seg.php");
     }
 ?>
 
